@@ -3,6 +3,26 @@ Developed a multi thread robot control protocol using TCP/IP.
 
 
 
+The Multithreaded robot control project developed in C language based on transmission control protocol
+(TCP), is a series of developed programs (main server/robot server, sub-servers/task servers, client
+server/user server) that allows the user client to connect to the robot server. It constantly sends and receives
+requests from client to main server and vice versa. The communication of the programs requires the threads
+in the program that is to include Multithreading, meaning that client can log into the multiple sub servers of
+the main server simultaneously to access the tasks on the sub server and to perform them. While functions
+progress, the main server program holds everything together, when the other sub servers and client server
+shuts down. On the contrary, when the client shuts their own interface down the robot server is unaffected.
+Robot control system (using TCP Multithreading to enable client to access the tasks) which contains three
+types of tests/tasks, and every type further contains different tasks as following.
+• Kinematics → (s1_Task1)
+• Path planning → (s2_Task1)
+• pic & place → (s3_Task1)
+
+There will be a main server (robot server) and three sub-servers (task servers) for different run tests and a
+client server (User). In order to address the overburden issue by communicating with client and handle the
+tasks, the main server only stores the info about which sub-server contains what sort of test/tasks (sub-servers
+each of which contains one type of test i.e., kinematics, path planning or pic & place).
+
+
 Programs execution: -
 The execution of the code is mainly intended to meet and show that the project has met the requirements of
 the course project using a multi-threaded programming. Since the libraries that are used are windows and
